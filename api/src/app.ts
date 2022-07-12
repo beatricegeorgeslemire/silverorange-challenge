@@ -3,6 +3,7 @@ import cors from 'cors';
 import { repos } from './routes/repos';
 import { terrible } from './middleware/terrible';
 import { AppError } from './models/AppError';
+import axios from 'axios';
 
 // CORS header configuration
 const corsOptions = {
@@ -27,3 +28,14 @@ app.use('/', (err: Error, req: Request, res: Response, next: NextFunction) => {
   res.status(status);
   res.json(formattedError);
 });
+
+
+axios({
+  method: 'GET',
+  url: `https://api.github.com/users/silverorange/repos`,
+  params: {
+    fork: false,
+  }
+}).then((res) => {
+  console.log(res);
+})
