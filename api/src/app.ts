@@ -30,12 +30,14 @@ app.use('/', (err: Error, req: Request, res: Response, next: NextFunction) => {
 });
 
 
-axios({
-  method: 'GET',
-  url: `https://api.github.com/users/silverorange/repos`,
-  params: {
-    fork: false,
-  }
-}).then((res) => {
-  console.log(res);
-})
+
+  axios({
+    method: 'GET',
+    url: `https://api.github.com/users/silverorange/repos`,
+    params: {
+      fork: false,
+    }
+  }).then((res) => {
+    console.log(res.data);
+  });
+
