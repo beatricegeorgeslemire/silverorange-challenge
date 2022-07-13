@@ -30,6 +30,41 @@ export function App() {
     return new Date(a.created_at) - new Date(b.created_at);
   });
 
+  //handleSelect to display the language chosen
+  const handleSelect = (e) => {
+    console.log(e.target);
+    if (e.target.id === 'Typescript') {
+      setLanguage(e.target.value);
+    } else if (e.target.id === 'PHP') {
+      setLanguage(e.target.value);
+    }
+  }
+
+  console.log(language);
+
+  return (
+    <>
+      <ul>
+        {
+          //map method to loop through list items and display them to the page
+          sort.map((list) => {
+            return (
+              <li key={list.id}>{list.full_name} {list.description} {list.language} {list.forks_count}</li>
+            )
+          })
+        }
+      </ul>
+      <form action="submit">
+        <label htmlFor="languageSelect">Choose your language!</label>
+        <select name="languageSelect" id="languageSelect" value={language} onChange={handleSelect}>
+          <option value='' default disabled>Select Language</option>
+          <option value="typescript">Typescript</option>
+          <option value="php">PHP</option>
+        </select>
+      </form>
+    </>
+  );
+
 }
 
 //Pseudo-Code
