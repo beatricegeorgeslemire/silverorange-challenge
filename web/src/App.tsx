@@ -24,6 +24,12 @@ export function App() {
   const filter = repo.filter((data) => {
     return (data.fork === false);
     })
+
+  //using the array method sort() to reverse chronological order by date
+  const sort = filter.sort(function (a, b) {
+    return new Date(a.created_at) - new Date(b.created_at);
+  });
+
 }
 
 //Pseudo-Code
