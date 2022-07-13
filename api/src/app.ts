@@ -30,14 +30,14 @@ app.use('/', (err: Error, req: Request, res: Response, next: NextFunction) => {
 });
 
 
-
-  axios({
-    method: 'GET',
-    url: `https://api.github.com/users/silverorange/repos`,
-    params: {
-      fork: false,
-    }
-  }).then((res) => {
-    console.log(res.data);
-  });
+//I tried to make a call with Express, but it unfortuanlety wasn't successful. Ithen tried to make a call with axios, and it returned the json data in my command line. I didn't figure out how to get it to display on the page...
+  // axios({
+  //   method: 'GET',
+  //   url: `https://api.github.com/users/silverorange/repos`,
+  //   params: {
+  //     fork: false,
+  //   }
+  // }).then((res) => {
+  //   console.log(res.data);
+  // });
 
